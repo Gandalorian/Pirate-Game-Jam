@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://tipjs5gjxjc"]
+
+[ext_resource type="Script" path="res://Data/Scripts/itembase.gd" id="1_g1bfk"]
+[ext_resource type="Texture2D" uid="uid://bfki0s0luo0iv" path="res://Graphics/herb5.1.png" id="1_lfsay"]
+
+[resource]
+script = ExtResource("1_g1bfk")
+name = "Herb 5"
+description = ""
+UID = 5
+icon = ExtResource("1_lfsay")
+value = 10
+combo_priority = 0

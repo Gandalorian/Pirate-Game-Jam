@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hh5mihcbsxpa"]
+[gd_scene load_steps=9 format=3 uid="uid://hh5mihcbsxpa"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/alchemy.gd" id="1_2p16l"]
 [ext_resource type="Script" path="res://Utility/UI/Scripts/alchemy_ui.gd" id="2_5c45j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ddxwsdgrr8vwx" path="res://Graphics/bottle.png" id="4_fqrrp"]
 [ext_resource type="Script" path="res://Utility/UI/Scripts/ingredient_slot.gd" id="5_jg3v6"]
 [ext_resource type="Script" path="res://Data/Scripts/shelveslot.gd" id="6_c4j8c"]
+[ext_resource type="Script" path="res://Utility/UI/Scripts/ingredient_button.gd" id="6_f6jka"]
 
 [node name="Alchemy Lab Screen" type="Node"]
 script = ExtResource("1_2p16l")
@@ -38,10 +39,15 @@ offset_bottom = 384.0
 texture = ExtResource("3_h2831")
 script = ExtResource("5_jg3v6")
 
-[node name="Ingredient" type="TextureRect" parent="Container/Ingredient Slots/IngredientSlot"]
+[node name="Ingredient" type="TextureButton" parent="Container/Ingredient Slots/IngredientSlot"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 65.0
+offset_bottom = 65.0
+action_mode = 0
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_f6jka")
 
 [node name="IngredientSlot2" type="TextureRect" parent="Container/Ingredient Slots"]
 self_modulate = Color(1, 1, 1, 0.686275)
@@ -53,9 +59,14 @@ offset_bottom = 354.0
 texture = ExtResource("3_h2831")
 script = ExtResource("5_jg3v6")
 
-[node name="Ingredient" type="TextureRect" parent="Container/Ingredient Slots/IngredientSlot2"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Ingredient" type="TextureButton" parent="Container/Ingredient Slots/IngredientSlot2"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_f6jka")
 
 [node name="IngredientSlot3" type="TextureRect" parent="Container/Ingredient Slots"]
 self_modulate = Color(1, 1, 1, 0.686275)
@@ -67,9 +78,14 @@ offset_bottom = 283.0
 texture = ExtResource("3_h2831")
 script = ExtResource("5_jg3v6")
 
-[node name="Ingredient" type="TextureRect" parent="Container/Ingredient Slots/IngredientSlot3"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Ingredient" type="TextureButton" parent="Container/Ingredient Slots/IngredientSlot3"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_f6jka")
 
 [node name="IngredientSlot4" type="TextureRect" parent="Container/Ingredient Slots"]
 self_modulate = Color(1, 1, 1, 0.686275)
@@ -81,9 +97,14 @@ offset_bottom = 448.0
 texture = ExtResource("3_h2831")
 script = ExtResource("5_jg3v6")
 
-[node name="Ingredient" type="TextureRect" parent="Container/Ingredient Slots/IngredientSlot4"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Ingredient" type="TextureButton" parent="Container/Ingredient Slots/IngredientSlot4"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_f6jka")
 
 [node name="To Shop button" type="Button" parent="Container"]
 layout_mode = 0
@@ -120,28 +141,43 @@ layout_mode = 2
 theme_override_constants/separation = 7
 
 [node name="Inventory Item" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
@@ -149,28 +185,43 @@ layout_mode = 2
 theme_override_constants/separation = 7
 
 [node name="Inventory Item" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
@@ -178,28 +229,43 @@ layout_mode = 2
 theme_override_constants/separation = 7
 
 [node name="Inventory Item" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
@@ -207,34 +273,56 @@ layout_mode = 2
 theme_override_constants/separation = 7
 
 [node name="Inventory Item" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
 [node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 texture = ExtResource("4_fqrrp")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
-[connection signal="gui_input" from="Container/Ingredient Slots/IngredientSlot" to="." method="_on_ingredient_slot_gui_input"]
 [connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot" to="." method="on_dropped_item"]
+[connection signal="on_drop" from="Container/Ingredient Slots/IngredientSlot/Ingredient" to="Container/Ingredient Slots/IngredientSlot" method="_on_ingredient_on_drop"]
+[connection signal="pressed" from="Container/Ingredient Slots/IngredientSlot/Ingredient" to="Container/Ingredient Slots/IngredientSlot" method="_on_ingredient_pressed"]
 [connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot2" to="." method="on_dropped_item"]
+[connection signal="on_drop" from="Container/Ingredient Slots/IngredientSlot2/Ingredient" to="Container/Ingredient Slots/IngredientSlot2" method="_on_ingredient_on_drop"]
+[connection signal="pressed" from="Container/Ingredient Slots/IngredientSlot2/Ingredient" to="Container/Ingredient Slots/IngredientSlot2" method="_on_ingredient_pressed"]
 [connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot3" to="." method="on_dropped_item"]
+[connection signal="on_drop" from="Container/Ingredient Slots/IngredientSlot3/Ingredient" to="Container/Ingredient Slots/IngredientSlot3" method="_on_ingredient_on_drop"]
+[connection signal="pressed" from="Container/Ingredient Slots/IngredientSlot3/Ingredient" to="Container/Ingredient Slots/IngredientSlot3" method="_on_ingredient_pressed"]
 [connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot4" to="." method="on_dropped_item"]
+[connection signal="on_drop" from="Container/Ingredient Slots/IngredientSlot4/Ingredient" to="Container/Ingredient Slots/IngredientSlot4" method="_on_ingredient_on_drop"]
+[connection signal="pressed" from="Container/Ingredient Slots/IngredientSlot4/Ingredient" to="Container/Ingredient Slots/IngredientSlot4" method="_on_ingredient_pressed"]
 [connection signal="pressed" from="Container/To Shop button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Container/Combine button" to="." method="_on_combine_button_pressed"]

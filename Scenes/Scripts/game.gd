@@ -26,7 +26,15 @@ func _ready():
 	garden.set_visible(false)
 	alchemy.set_visible(false)
 	
+	# Test inventory
 	inventory.add(ItemDatabase.get_item("test_item"),1)
+	inventory.add(ItemDatabase.get_item("herb1"),1)
+	inventory.add(ItemDatabase.get_item("herb2"),1)
+	inventory.add(ItemDatabase.get_item("herb3"),1)
+	inventory.add(ItemDatabase.get_item("herb4"),1)
+	inventory.add(ItemDatabase.get_item("herb5"),1)
+	inventory.add(ItemDatabase.get_item("herb6"),1)
+	
 	inventory.update_inventory.connect(update_inventory)
 
 func setup_title():
@@ -51,6 +59,7 @@ func setup_alchemy():
 	alchemy.on_shop_button_pressed.connect(alch_to_shop)
 	alchemy.on_update_inventory.connect(update_inventory)
 	alchemy.on_dropped_ingredient.connect(inventory.remove)
+	alchemy.add_to_inventory.connect(inventory.add)
 	
 func start_game():
 	animplayer.play("fade_to_black")

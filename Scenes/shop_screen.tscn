@@ -28,6 +28,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="To Alch Button" type="Button" parent="Container/Buttons"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 503.0
 offset_right = 135.0
@@ -35,6 +36,7 @@ offset_bottom = 534.0
 text = "To Alchemy Lab"
 
 [node name="To Garden Button" type="Button" parent="Container/Buttons"]
+layout_mode = 0
 offset_left = 828.0
 offset_top = 503.0
 offset_right = 958.0

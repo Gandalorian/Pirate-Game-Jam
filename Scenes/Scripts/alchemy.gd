@@ -12,7 +12,7 @@ signal add_to_inventory(item:ItemBase, count:int)
 func _ready():
 	container.visible = false
 	for child in ingredients.get_children():
-		child.on_dropped_item.connect(on_dropped_item)
+		child.on_undropped_item.connect(on_undropped_item)
 
 func set_visible(visibility):
 	container.visible = visibility
@@ -33,9 +33,5 @@ func _on_combine_button_pressed():
 func on_dropped_item(item:ItemBase):
 	on_dropped_ingredient.emit(item)
 
-func _on_ingredient_slot_gui_input(event:InputEvent, index:int):
-	var slot = ingredients.get_children()[index]
-	if event.is_pressed() and slot.item != null:
-		add_to_inventory.emit(slot.item,1)
-		slot.item = null
-		slot.ingredient.texture = null
+func on_undropped_item(item:ItemBase):
+	add_to_inventory.emit(item,1)

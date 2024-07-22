@@ -10,7 +10,7 @@ func _ready():
 	container = []
 
 func add(item, count):
-	#print("add to inventory")
+	print("add to inventory")
 	for slot in container:
 		if item == slot.item:
 			slot.count += count
