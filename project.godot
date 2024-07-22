@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Pirate Game Jam"
+run/main_scene="res://Scenes/game.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ItemDatabase="*res://Data/Databases/item_database.tscn"
+CombinationDatabase="*res://Data/Databases/combination_database.tscn"
+
+[display]
+
+window/size/viewport_width=964
+window/size/viewport_height=542
+
+[dotnet]
+
+project/assembly_name="Pirate Game Jam"
+
+[editor]
+
+movie_writer/mjpeg_quality=0.6
+movie_writer/movie_file="C:/Users/augha/Godot Projects/Recordings/recording.avi"
+movie_writer/fps=24

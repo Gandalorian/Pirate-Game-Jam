@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dolttixvnglk0"]
+
+[ext_resource type="Script" path="res://Data/Databases/item_database.gd" id="1_jjx3e"]
+
+[node name="Item Database" type="Node"]
+script = ExtResource("1_jjx3e")
+item_folder = "res://Data/Items"

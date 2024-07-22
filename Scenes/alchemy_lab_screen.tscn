@@ -1,0 +1,240 @@
+[gd_scene load_steps=8 format=3 uid="uid://hh5mihcbsxpa"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/alchemy.gd" id="1_2p16l"]
+[ext_resource type="Script" path="res://Utility/UI/Scripts/alchemy_ui.gd" id="2_5c45j"]
+[ext_resource type="Texture2D" uid="uid://0b4uw2ev637q" path="res://Graphics/alchemy.png" id="2_jtvvt"]
+[ext_resource type="Texture2D" uid="uid://b884dfop5hq4l" path="res://Graphics/ingredientslot.png" id="3_h2831"]
+[ext_resource type="Texture2D" uid="uid://ddxwsdgrr8vwx" path="res://Graphics/bottle.png" id="4_fqrrp"]
+[ext_resource type="Script" path="res://Utility/UI/Scripts/ingredient_slot.gd" id="5_jg3v6"]
+[ext_resource type="Script" path="res://Data/Scripts/shelveslot.gd" id="6_c4j8c"]
+
+[node name="Alchemy Lab Screen" type="Node"]
+script = ExtResource("1_2p16l")
+
+[node name="Container" type="Control" parent="." node_paths=PackedStringArray("shelveslots")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_5c45j")
+shelveslots = [NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item"), NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item2"), NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item3"), NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item4"), NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item5"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item2"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item3"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item4"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item5"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item2"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item3"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item4"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item5"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item2"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item3"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item4"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item5")]
+
+[node name="Background" type="TextureRect" parent="Container"]
+layout_mode = 0
+offset_right = 964.0
+offset_bottom = 542.0
+texture = ExtResource("2_jtvvt")
+
+[node name="Ingredient Slots" type="Control" parent="Container"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IngredientSlot" type="TextureRect" parent="Container/Ingredient Slots"]
+self_modulate = Color(1, 1, 1, 0.686275)
+layout_mode = 0
+offset_left = 175.0
+offset_top = 319.0
+offset_right = 240.0
+offset_bottom = 384.0
+texture = ExtResource("3_h2831")
+script = ExtResource("5_jg3v6")
+
+[node name="Ingredient" type="TextureRect" parent="Container/Ingredient Slots/IngredientSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IngredientSlot2" type="TextureRect" parent="Container/Ingredient Slots"]
+self_modulate = Color(1, 1, 1, 0.686275)
+layout_mode = 0
+offset_left = 297.0
+offset_top = 289.0
+offset_right = 362.0
+offset_bottom = 354.0
+texture = ExtResource("3_h2831")
+script = ExtResource("5_jg3v6")
+
+[node name="Ingredient" type="TextureRect" parent="Container/Ingredient Slots/IngredientSlot2"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IngredientSlot3" type="TextureRect" parent="Container/Ingredient Slots"]
+self_modulate = Color(1, 1, 1, 0.686275)
+layout_mode = 0
+offset_left = 384.0
+offset_top = 218.0
+offset_right = 449.0
+offset_bottom = 283.0
+texture = ExtResource("3_h2831")
+script = ExtResource("5_jg3v6")
+
+[node name="Ingredient" type="TextureRect" parent="Container/Ingredient Slots/IngredientSlot3"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IngredientSlot4" type="TextureRect" parent="Container/Ingredient Slots"]
+self_modulate = Color(1, 1, 1, 0.686275)
+layout_mode = 0
+offset_left = 374.0
+offset_top = 383.0
+offset_right = 439.0
+offset_bottom = 448.0
+texture = ExtResource("3_h2831")
+script = ExtResource("5_jg3v6")
+
+[node name="Ingredient" type="TextureRect" parent="Container/Ingredient Slots/IngredientSlot4"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="To Shop button" type="Button" parent="Container"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 501.0
+offset_right = 956.0
+offset_bottom = 532.0
+text = "To shop"
+
+[node name="Combine button" type="Button" parent="Container"]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 459.0
+offset_right = 398.0
+offset_bottom = 490.0
+text = "Combine ingredients"
+
+[node name="Right shelves" type="Control" parent="Container"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 608.0
+offset_top = 153.0
+offset_right = 608.0
+offset_bottom = 153.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/Right shelves"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 13
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Inventory Item" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Inventory Item" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Inventory Item" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Inventory Item" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("4_fqrrp")
+script = ExtResource("6_c4j8c")
+
+[connection signal="gui_input" from="Container/Ingredient Slots/IngredientSlot" to="." method="_on_ingredient_slot_gui_input"]
+[connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot" to="." method="on_dropped_item"]
+[connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot2" to="." method="on_dropped_item"]
+[connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot3" to="." method="on_dropped_item"]
+[connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot4" to="." method="on_dropped_item"]
+[connection signal="pressed" from="Container/To Shop button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Container/Combine button" to="." method="_on_combine_button_pressed"]

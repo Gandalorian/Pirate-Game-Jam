@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq68arooifcb2"]
+
+[ext_resource type="Script" path="res://Data/Databases/combination_database.gd" id="1_ndk5r"]
+
+[node name="Combination Database" type="Node"]
+script = ExtResource("1_ndk5r")
+item_folder = "res://Data/Combinations"

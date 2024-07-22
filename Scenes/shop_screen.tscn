@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjth2p10kqre3"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/shop_screen.gd" id="1_o4ob2"]
+[ext_resource type="Texture2D" uid="uid://di84lty34r4o6" path="res://Graphics/shop_back.png" id="2_s6mos"]
+[ext_resource type="Texture2D" uid="uid://cliwi3jbokf7t" path="res://Graphics/shop_front.png" id="3_hwfsf"]
+
+[node name="Shop Screen" type="Node"]
+script = ExtResource("1_o4ob2")
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Container"]
+offset_right = 964.0
+offset_bottom = 542.0
+texture = ExtResource("2_s6mos")
+expand_mode = 1
+
+[node name="Shop counter" type="TextureRect" parent="Container"]
+offset_right = 964.0
+offset_bottom = 542.0
+texture = ExtResource("3_hwfsf")
+expand_mode = 1
+
+[node name="Buttons" type="Control" parent="Container"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="To Alch Button" type="Button" parent="Container/Buttons"]
+offset_left = 5.0
+offset_top = 503.0
+offset_right = 135.0
+offset_bottom = 534.0
+text = "To Alchemy Lab"
+
+[node name="To Garden Button" type="Button" parent="Container/Buttons"]
+offset_left = 828.0
+offset_top = 503.0
+offset_right = 958.0
+offset_bottom = 534.0
+text = "To Garden"
+
+[connection signal="pressed" from="Container/Buttons/To Alch Button" to="." method="_on_to_alch_button_pressed"]
+[connection signal="pressed" from="Container/Buttons/To Garden Button" to="." method="_on_to_garden_button_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://bob1thdpgjxrh"]
+
+[ext_resource type="Texture2D" uid="uid://ddxwsdgrr8vwx" path="res://Graphics/bottle.png" id="1_g14j5"]
+[ext_resource type="Script" path="res://Data/Scripts/itembase.gd" id="1_n76fe"]
+
+[resource]
+script = ExtResource("1_n76fe")
+name = "Test"
+description = "Only for testing purposes"
+UID = 0
+icon = ExtResource("1_g14j5")
+value = 100
+combo_priority = 1

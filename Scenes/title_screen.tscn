@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://3kvwy508reu1"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/title_screen.gd" id="1_ad52l"]
+
+[node name="Title Screen" type="Node"]
+script = ExtResource("1_ad52l")
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Title label" type="Label" parent="Container"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 335.0
+offset_top = 167.0
+offset_right = 630.0
+offset_bottom = 225.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 42
+text = "Name of game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 417.0
+offset_top = 236.0
+offset_right = 547.0
+offset_bottom = 359.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Start button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Start game"
+
+[node name="Settings button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Exit game"
+
+[connection signal="pressed" from="Container/VBoxContainer/Start button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Settings button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Exit button" to="." method="_on_exit_button_pressed"]
