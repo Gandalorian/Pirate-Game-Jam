@@ -11,3 +11,4 @@ UID = 6
 icon = ExtResource("1_2r3ld")
 value = 10
 combo_priority = 0
+type = 2

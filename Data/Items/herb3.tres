@@ -11,3 +11,4 @@ UID = 3
 icon = ExtResource("1_x3pyd")
 value = 10
 combo_priority = 0
+type = 2

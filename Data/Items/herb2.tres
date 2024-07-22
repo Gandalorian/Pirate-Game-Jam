@@ -11,3 +11,4 @@ UID = 2
 icon = ExtResource("1_wpv3u")
 value = 10
 combo_priority = 0
+type = 2

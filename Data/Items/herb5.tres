@@ -11,3 +11,4 @@ UID = 5
 icon = ExtResource("1_lfsay")
 value = 10
 combo_priority = 0
+type = 2

@@ -1,6 +1,8 @@
 extends TextureRect
 class_name ShelveSlot
 
+@onready var amount = $Label
+
 var item
 var count
 
@@ -21,3 +23,4 @@ func _get_drag_data(at_position):
 func set_item_and_count(i,c):
 	item = i
 	count = c
+	amount.text = "...".format([c], "...")

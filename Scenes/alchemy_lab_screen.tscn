@@ -1,13 +1,132 @@
-[gd_scene load_steps=9 format=3 uid="uid://hh5mihcbsxpa"]
+[gd_scene load_steps=16 format=3 uid="uid://hh5mihcbsxpa"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/alchemy.gd" id="1_2p16l"]
 [ext_resource type="Script" path="res://Utility/UI/Scripts/alchemy_ui.gd" id="2_5c45j"]
-[ext_resource type="Texture2D" uid="uid://0b4uw2ev637q" path="res://Graphics/alchemy.png" id="2_jtvvt"]
+[ext_resource type="Texture2D" uid="uid://ec5s7osl6a5j" path="res://Graphics/room1.png" id="3_8xrjx"]
 [ext_resource type="Texture2D" uid="uid://b884dfop5hq4l" path="res://Graphics/ingredientslot.png" id="3_h2831"]
 [ext_resource type="Texture2D" uid="uid://ddxwsdgrr8vwx" path="res://Graphics/bottle.png" id="4_fqrrp"]
 [ext_resource type="Script" path="res://Utility/UI/Scripts/ingredient_slot.gd" id="5_jg3v6"]
 [ext_resource type="Script" path="res://Data/Scripts/shelveslot.gd" id="6_c4j8c"]
 [ext_resource type="Script" path="res://Utility/UI/Scripts/ingredient_button.gd" id="6_f6jka"]
+[ext_resource type="Texture2D" uid="uid://n4le4wdv0t3r" path="res://Graphics/book_idle.png" id="9_rqeon"]
+[ext_resource type="Texture2D" uid="uid://66gknx3ee2ci" path="res://Graphics/animated_book.png" id="10_u48ke"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpap0"]
+atlas = ExtResource("10_u48ke")
+region = Rect2(300, 0, 300, 200)
+
+[sub_resource type="Animation" id="Animation_33up6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Recipe Book Popup/Background:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(600, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Recipe Book Popup/Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(197, 91)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Container/Recipe Book Popup/Background:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_lpap0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container/Recipe Book Popup/Background:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(300, 0, 300, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_7vrrt"]
+resource_name = "open_recipe_book"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Recipe Book Popup/Background:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120, 80), Vector2(600, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Recipe Book Popup/Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(36, 136), Vector2(200, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_5wkku"]
+resource_name = "flip_page"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Recipe Book Popup/Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_lpap0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Recipe Book Popup/Background:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 300, 200), Rect2(300, 0, 300, 200), Rect2(600, 0, 300, 200), Rect2(900, 0, 300, 200), Rect2(1200, 0, 300, 200), Rect2(0, 0, 300, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0vxfc"]
+_data = {
+"RESET": SubResource("Animation_33up6"),
+"flip_page": SubResource("Animation_5wkku"),
+"open_recipe_book": SubResource("Animation_7vrrt")
+}
 
 [node name="Alchemy Lab Screen" type="Node"]
 script = ExtResource("1_2p16l")
@@ -22,7 +141,8 @@ shelveslots = [NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Ite
 layout_mode = 0
 offset_right = 964.0
 offset_bottom = 542.0
-texture = ExtResource("2_jtvvt")
+texture = ExtResource("3_8xrjx")
+expand_mode = 1
 
 [node name="Ingredient Slots" type="Control" parent="Container"]
 anchors_preset = 0
@@ -148,6 +268,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer/Inventory Item"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -155,6 +290,21 @@ texture = ExtResource("4_fqrrp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
+
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer/Inventory Item2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(65, 65)
@@ -164,6 +314,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer/Inventory Item3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -172,6 +337,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer/Inventory Item4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -179,6 +359,21 @@ texture = ExtResource("4_fqrrp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
+
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer/Inventory Item5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
 layout_mode = 2
@@ -192,6 +387,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer2/Inventory Item"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -199,6 +409,21 @@ texture = ExtResource("4_fqrrp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
+
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer2/Inventory Item2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(65, 65)
@@ -208,6 +433,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer2/Inventory Item3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -216,6 +456,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer2/Inventory Item4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -223,6 +478,21 @@ texture = ExtResource("4_fqrrp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
+
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer2/Inventory Item5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
 layout_mode = 2
@@ -236,6 +506,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer3/Inventory Item"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -243,6 +528,21 @@ texture = ExtResource("4_fqrrp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
+
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer3/Inventory Item2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(65, 65)
@@ -252,6 +552,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer3/Inventory Item3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -260,6 +575,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer3/Inventory Item4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -267,6 +597,21 @@ texture = ExtResource("4_fqrrp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
+
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer3/Inventory Item5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Container/Right shelves/VBoxContainer"]
 layout_mode = 2
@@ -280,6 +625,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer4/Inventory Item"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item2" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -287,6 +647,21 @@ texture = ExtResource("4_fqrrp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
+
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer4/Inventory Item2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Inventory Item3" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(65, 65)
@@ -296,6 +671,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer4/Inventory Item3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item4" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -304,6 +694,21 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
 
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer4/Inventory Item4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Inventory Item5" type="TextureRect" parent="Container/Right shelves/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -311,6 +716,59 @@ texture = ExtResource("4_fqrrp")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_c4j8c")
+
+[node name="Label" type="Label" parent="Container/Right shelves/VBoxContainer/HBoxContainer4/Inventory Item5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Recipe Book button" type="TextureButton" parent="Container"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 130.0
+offset_right = 175.0
+offset_bottom = 230.0
+texture_normal = ExtResource("9_rqeon")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Recipe Book Popup" type="Control" parent="Container"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Container/Recipe Book Popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 177.0
+offset_top = 71.0
+offset_right = 777.0
+offset_bottom = 471.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_lpap0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0vxfc")
+}
 
 [connection signal="on_dropped_item" from="Container/Ingredient Slots/IngredientSlot" to="." method="on_dropped_item"]
 [connection signal="on_drop" from="Container/Ingredient Slots/IngredientSlot/Ingredient" to="Container/Ingredient Slots/IngredientSlot" method="_on_ingredient_on_drop"]
@@ -326,3 +784,4 @@ script = ExtResource("6_c4j8c")
 [connection signal="pressed" from="Container/Ingredient Slots/IngredientSlot4/Ingredient" to="Container/Ingredient Slots/IngredientSlot4" method="_on_ingredient_pressed"]
 [connection signal="pressed" from="Container/To Shop button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Container/Combine button" to="." method="_on_combine_button_pressed"]
+[connection signal="pressed" from="Container/Recipe Book button" to="." method="_on_recipe_book_button_pressed"]
