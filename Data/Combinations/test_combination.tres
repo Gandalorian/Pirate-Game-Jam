@@ -9,4 +9,4 @@ script = ExtResource("1_6t4a3")
 result = ExtResource("2_nqbiu")
 amount = 2
 requires = Array[Resource("res://Data/Scripts/itembase.gd")]([ExtResource("1_kuulw")])
-not_include = Array[int]([3])
+not_include = Array[int]([])

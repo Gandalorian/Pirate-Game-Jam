@@ -15,7 +15,6 @@ var alchemy: Node
 
 var root
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	root = get_tree().root.get_child(-1)
 	setup_title()
@@ -37,6 +36,7 @@ func _ready():
 	
 	inventory.update_inventory.connect(update_inventory)
 
+# Setup functions
 func setup_title():
 	root.add_child(titlescreen)
 	title = root.get_child(-1)
@@ -69,6 +69,8 @@ func start_game():
 	animplayer.play("fade_from_black")
 	await animplayer.animation_finished
 	
+
+# Changing scene functions
 func alch_to_garden():
 	animplayer.play("fade_to_black")
 	await animplayer.animation_finished
@@ -117,5 +119,6 @@ func garden_to_alch():
 	animplayer.play("fade_from_black")
 	await animplayer.animation_finished
 
+# Utility functions
 func update_inventory():
 	alchemy.update_inventory(inventory.container)

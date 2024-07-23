@@ -30,16 +30,27 @@ func update_inventory(inventory):
 
 func _on_combine_button_pressed():
 	if recipebook.visible: return
+	# Get all placed ingredients
 	var ingreds:Array[ItemBase] = []
 	for child in ingredients.get_children():
 		ingreds.append(child.item)
-	var possibleResults = CombinationDatabase.get_valid_combinations({1:ingreds[0],2:ingreds[1],3:ingreds[2],4:ingreds[3]})
-	if possibleResults.size() == 1: 
-		add_to_inventory.emit(possibleResults[0].result,possibleResults[0].amount)
-		for child in ingredients.get_children():
-			child.item = null
-			child.ingredient.texture_normal = null
-		return
+	var possibleResults:Array[Combination] = []
+	# For each ingredient
+	while(ingreds.size() >= 1):
+		# Find which ingredient has highest prio, and save it's index
+		var index = find_prio(ingreds)
+		# Get all possible combinations with highest prio ingredient
+		possibleResults.append_array(CombinationDatabase.get_valid_combinations(ingreds[index]))
+		# If only one result, do that combination
+		if possibleResults.size() == 1: 
+			do_combination(possibleResults[0])
+			return
+		# Otherwise, remove that ingredient from list of ingredients to check, and go again
+		ingreds.remove_at(index)
+	# If no possible combinations, return
+	if possibleResults.size() == 0: return
+	# Otherwise, if list of possible combinations not narrowed down to one at this point, do random combination
+	do_combination(possibleResults[randi_range(0,possibleResults.size() - 1)])
 
 func on_dropped_item(item:ItemBase):
 	on_dropped_ingredient.emit(item)
@@ -51,3 +62,18 @@ func _on_recipe_book_button_pressed():
 	if recipebook.visible: return
 	recipebook.visible = true
 	animplayer.play("open_recipe_book")
+
+func do_combination(combo):
+	add_to_inventory.emit(combo.result,combo.amount)
+	for child in ingredients.get_children():
+		child.item = null
+		child.ingredient.texture_normal = null
+
+func find_prio(array)-> int:
+	var prio = 0
+	var index = 0
+	for i in range(array.size()):
+		if array[i] and array[i].combo_priority > prio:
+			prio = array[i].combo_priority
+			index = i
+	return index

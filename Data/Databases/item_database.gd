@@ -16,3 +16,11 @@ func _ready():
 
 func get_item(ID):
 	return cache[ID + ".tres"]
+
+func get_random_gaterable():
+	var gatherables = []
+	for key in cache:
+		var item = cache[key]
+		if item.type == ItemBase.ItemType.Gatherable:
+			gatherables.append(item)
+	return gatherables[randi() % gatherables.size()]
