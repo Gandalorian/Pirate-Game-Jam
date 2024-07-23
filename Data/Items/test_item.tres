@@ -7,8 +7,7 @@
 script = ExtResource("1_n76fe")
 name = "Test"
 description = "Only for testing purposes"
-UID = 0
 icon = ExtResource("1_g14j5")
 value = 100
 combo_priority = 1
-type = 1
+type = 0

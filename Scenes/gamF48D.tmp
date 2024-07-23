@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccbqlfv07hsgt"]
+[gd_scene load_steps=10 format=3 uid="uid://ccbqlfv07hsgt"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/game.gd" id="1_c7vsc"]
 [ext_resource type="Texture2D" uid="uid://dlglvcdkth7qe" path="res://Graphics/black.png" id="2_4rbyv"]
 [ext_resource type="Script" path="res://Data/Scripts/Inventory.gd" id="2_ygaor"]
 [ext_resource type="Texture2D" uid="uid://ddxwsdgrr8vwx" path="res://Graphics/bottle.png" id="4_8cqpf"]
-[ext_resource type="Script" path="res://Utility/UI/Scripts/inventory_popup.gd" id="4_bwgaf"]
 
 [sub_resource type="Animation" id="Animation_rplw2"]
 length = 0.001
@@ -66,7 +65,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_7upkg"]
 resource_name = "added_to_inventory_popup"
 length = 3.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -119,7 +117,6 @@ offset_right = 100.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("4_bwgaf")
 
 [node name="Container" type="HBoxContainer" parent="Inventory added popup"]
 layout_mode = 1
