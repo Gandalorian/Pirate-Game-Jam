@@ -66,33 +66,6 @@ tracks/3/keys = {
 "values": [Rect2(300, 0, 300, 200)]
 }
 
-[sub_resource type="Animation" id="Animation_7vrrt"]
-resource_name = "open_recipe_book"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container/Recipe Book Popup/Background:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(120, 80), Vector2(600, 400)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Container/Recipe Book Popup/Background:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(36, 136), Vector2(200, 80)]
-}
-
 [sub_resource type="Animation" id="Animation_5wkku"]
 resource_name = "flip_page"
 length = 0.5
@@ -119,6 +92,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Rect2(0, 0, 300, 200), Rect2(300, 0, 300, 200), Rect2(600, 0, 300, 200), Rect2(900, 0, 300, 200), Rect2(1200, 0, 300, 200), Rect2(0, 0, 300, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_7vrrt"]
+resource_name = "open_recipe_book"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Recipe Book Popup/Background:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120, 80), Vector2(600, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Recipe Book Popup/Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(36, 136), Vector2(200, 80)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0vxfc"]
@@ -755,10 +755,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 177.0
-offset_top = 71.0
-offset_right = 777.0
-offset_bottom = 471.0
+offset_left = 197.0
+offset_top = 91.0
+offset_right = 797.0
+offset_bottom = 491.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_lpap0")

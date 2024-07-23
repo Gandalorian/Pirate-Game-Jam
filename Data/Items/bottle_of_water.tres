@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemBase" load_steps=3 format=3 uid="uid://efk28v3w3bja"]
+
+[ext_resource type="Texture2D" uid="uid://ddxwsdgrr8vwx" path="res://Graphics/bottle.png" id="1_2adry"]
+[ext_resource type="Script" path="res://Data/Scripts/itembase.gd" id="1_frtqt"]
+
+[resource]
+script = ExtResource("1_frtqt")
+name = "Bottle of Water"
+description = ""
+UID = 7
+icon = ExtResource("1_2adry")
+value = 5
+combo_priority = 0
+type = 3
