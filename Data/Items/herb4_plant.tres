@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemBase" load_steps=2 format=3 uid="uid://da83v1jxfh8nx"]
+
+[ext_resource type="Script" path="res://Data/Scripts/itembase.gd" id="1_mv8cv"]
+
+[resource]
+script = ExtResource("1_mv8cv")
+name = ""
+description = ""
+value = 0
+combo_priority = 0
+type = 0

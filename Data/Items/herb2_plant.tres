@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemBase" load_steps=2 format=3 uid="uid://dtttqrl81olug"]
+
+[ext_resource type="Script" path="res://Data/Scripts/itembase.gd" id="1_mora0"]
+
+[resource]
+script = ExtResource("1_mora0")
+name = ""
+description = ""
+value = 0
+combo_priority = 0
+type = 0

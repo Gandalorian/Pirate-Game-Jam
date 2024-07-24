@@ -7,8 +7,7 @@
 script = ExtResource("1_88p0t")
 name = "Herb 4"
 description = ""
-UID = 4
 icon = ExtResource("1_whqy7")
 value = 10
 combo_priority = 0
-type = 2
+type = 1

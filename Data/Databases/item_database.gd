@@ -17,7 +17,7 @@ func _ready():
 func get_item(ID):
 	return cache[ID + ".tres"]
 
-func get_random_gaterable():
+func get_random_gatherable():
 	var gatherables = []
 	for key in cache:
 		var item = cache[key]

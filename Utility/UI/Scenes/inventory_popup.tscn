@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp2oqptncsyqe"]
+
+[ext_resource type="Script" path="res://Utility/UI/Scripts/inventory_popup.gd" id="1_q178h"]
+[ext_resource type="Texture2D" uid="uid://ddxwsdgrr8vwx" path="res://Graphics/bottle.png" id="2_5rwfa"]
+[ext_resource type="AnimationLibrary" uid="uid://4lns1bc1l4ds" path="res://Data/Animations/Popup.res" id="3_awoe2"]
+
+[sub_resource type="Animation" id="Animation_e8fym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inventory popup/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y68et"]
+_data = {
+"RESET": SubResource("Animation_e8fym")
+}
+
+[node name="Inventory popup" type="Control"]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_q178h")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 362.0
+offset_top = 438.0
+offset_right = 562.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Container" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_right = 75.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Item icon" type="TextureRect" parent="Panel/Container"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_5rwfa")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="VBoxContainer" parent="Panel/Container"]
+layout_mode = 2
+
+[node name="Item name" type="Label" parent="Panel/Container/Text"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "x1 item name"
+
+[node name="added to inventory" type="Label" parent="Panel/Container/Text"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "put in inventory"
+
+[node name="PopupPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_y68et"),
+"Popup": ExtResource("3_awoe2")
+}

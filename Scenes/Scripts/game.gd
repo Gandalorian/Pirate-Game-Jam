@@ -7,6 +7,7 @@ extends Node
 
 @onready var animplayer = $AnimationPlayer
 @onready var inventory = $Inventory
+@onready var inventory_popup = $"Inventory popup"
 
 var title: Node
 var shop: Node
@@ -25,6 +26,8 @@ func _ready():
 	garden.set_visible(false)
 	alchemy.set_visible(false)
 	
+	$"Inventory popup/Panel".modulate = Color8(255,255,255,0)
+	
 	# Test inventory
 	inventory.add(ItemDatabase.get_item("test_item"),1)
 	inventory.add(ItemDatabase.get_item("herb1"),1)
@@ -35,6 +38,7 @@ func _ready():
 	inventory.add(ItemDatabase.get_item("herb6"),1)
 	
 	inventory.update_inventory.connect(update_inventory)
+	inventory.added_to_inventory.connect(play_inventory_popup)
 
 # Setup functions
 func setup_title():
@@ -52,6 +56,7 @@ func setup_garden():
 	root.add_child(gardenscreen)
 	garden = root.get_child(-1)
 	garden.on_shop_button_pressed.connect(garden_to_shop)
+	garden.on_gatherable_pressed.connect(inventory.add)
 
 func setup_alchemy():
 	root.add_child(alchemyscreen)
@@ -65,7 +70,7 @@ func start_game():
 	animplayer.play("fade_to_black")
 	await animplayer.animation_finished
 	title.set_visible(false)
-	alchemy.set_visible(true)
+	shop.set_visible(true)
 	animplayer.play("fade_from_black")
 	await animplayer.animation_finished
 	
@@ -91,6 +96,7 @@ func shop_to_garden():
 	animplayer.play("fade_to_black")
 	await animplayer.animation_finished
 	shop.set_visible(false)
+	garden.spawn_gatherables()
 	garden.set_visible(true)
 	animplayer.play("fade_from_black")
 	await animplayer.animation_finished
@@ -122,3 +128,10 @@ func garden_to_alch():
 # Utility functions
 func update_inventory():
 	alchemy.update_inventory(inventory.container)
+
+func play_inventory_popup(item,count):
+	if not inventory_popup.animplayer.is_playing():
+		inventory_popup.setup(item,count)
+		inventory_popup.play_anim("Popup/added_to_inventory_popup")
+	else:
+		inventory_popup.add_to_setup_queue(item,count)

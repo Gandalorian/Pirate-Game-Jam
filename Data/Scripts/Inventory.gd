@@ -5,12 +5,13 @@ var container:Array[InventorySlot]
 var money = 0
 
 signal update_inventory
+signal added_to_inventory(item,count)
 
 func _ready():
 	container = []
 
-func add(item, count):
-	print("add to inventory")
+func add(item, count = 1):
+	added_to_inventory.emit(item,count)
 	for slot in container:
 		if item == slot.item:
 			slot.count += count

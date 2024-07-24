@@ -7,8 +7,7 @@
 script = ExtResource("1_frtqt")
 name = "Bottle of Water"
 description = ""
-UID = 7
 icon = ExtResource("1_2adry")
 value = 5
 combo_priority = 0
-type = 3
+type = 0

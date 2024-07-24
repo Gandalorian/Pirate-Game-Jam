@@ -131,20 +131,18 @@ _data = {
 [node name="Alchemy Lab Screen" type="Node"]
 script = ExtResource("1_2p16l")
 
-[node name="Container" type="Control" parent="." node_paths=PackedStringArray("shelveslots")]
-layout_mode = 3
-anchors_preset = 0
+[node name="Container" type="Node2D" parent="." node_paths=PackedStringArray("shelveslots")]
 script = ExtResource("2_5c45j")
 shelveslots = [NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item"), NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item2"), NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item3"), NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item4"), NodePath("Right shelves/VBoxContainer/HBoxContainer/Inventory Item5"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item2"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item3"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item4"), NodePath("Right shelves/VBoxContainer/HBoxContainer2/Inventory Item5"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item2"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item3"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item4"), NodePath("Right shelves/VBoxContainer/HBoxContainer3/Inventory Item5"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item2"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item3"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item4"), NodePath("Right shelves/VBoxContainer/HBoxContainer4/Inventory Item5")]
 
 [node name="Background" type="TextureRect" parent="Container"]
-layout_mode = 0
 offset_right = 964.0
 offset_bottom = 542.0
 texture = ExtResource("3_8xrjx")
 expand_mode = 1
 
 [node name="Ingredient Slots" type="Control" parent="Container"]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -227,7 +225,6 @@ stretch_mode = 5
 script = ExtResource("6_f6jka")
 
 [node name="To Shop button" type="Button" parent="Container"]
-layout_mode = 0
 offset_left = 887.0
 offset_top = 501.0
 offset_right = 956.0
@@ -235,7 +232,6 @@ offset_bottom = 532.0
 text = "To shop"
 
 [node name="Combine button" type="Button" parent="Container"]
-layout_mode = 0
 offset_left = 229.0
 offset_top = 459.0
 offset_right = 398.0
@@ -733,7 +729,6 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Recipe Book button" type="TextureButton" parent="Container"]
-layout_mode = 0
 offset_left = 25.0
 offset_top = 130.0
 offset_right = 175.0
@@ -744,6 +739,7 @@ stretch_mode = 5
 
 [node name="Recipe Book Popup" type="Control" parent="Container"]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
