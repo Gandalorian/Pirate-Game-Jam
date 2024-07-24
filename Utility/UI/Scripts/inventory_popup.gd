@@ -24,7 +24,6 @@ func pop_setup_queue():
 	animplayer.play("Popup/added_to_inventory_popup")
 
 func handle_autoplay(anim_name):
-	print(anim_name)
 	match(anim_name):
 		"Popup/added_to_inventory_popup": pop_setup_queue()
 

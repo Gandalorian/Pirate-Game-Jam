@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Combination" load_steps=5 format=3 uid="uid://b8qnk48f3vwsk"]
+
+[ext_resource type="Resource" uid="uid://efk28v3w3bja" path="res://Data/Items/bottle_of_water.tres" id="1_0utum"]
+[ext_resource type="Script" path="res://Data/Scripts/combination.gd" id="1_t3ufe"]
+[ext_resource type="Resource" uid="uid://nogij306rugo" path="res://Data/Items/herb2.tres" id="2_b6pbm"]
+[ext_resource type="Resource" uid="uid://b524u1l7ida2e" path="res://Data/Items/test_potion.tres" id="3_mw16n"]
+
+[resource]
+script = ExtResource("1_t3ufe")
+result = ExtResource("3_mw16n")
+amount = 1
+requires = Array[Resource("res://Data/Scripts/itembase.gd")]([ExtResource("1_0utum"), ExtResource("2_b6pbm")])
+not_include = Array[int]([])

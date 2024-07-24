@@ -30,27 +30,18 @@ func update_inventory(inventory):
 
 func _on_combine_button_pressed():
 	if recipebook.visible: return
+	
 	# Get all placed ingredients
 	var ingreds:Array[ItemBase] = []
 	for child in ingredients.get_children():
-		ingreds.append(child.item)
-	var possibleResults:Array[Combination] = []
-	# For each ingredient
-	while(ingreds.size() >= 1):
-		# Find which ingredient has highest prio, and save it's index
-		var index = find_prio(ingreds)
-		# Get all possible combinations with highest prio ingredient
-		possibleResults.append_array(CombinationDatabase.get_valid_combinations(ingreds[index]))
-		# If only one result, do that combination
-		if possibleResults.size() == 1: 
-			do_combination(possibleResults[0])
-			return
-		# Otherwise, remove that ingredient from list of ingredients to check, and go again
-		ingreds.remove_at(index)
-	# If no possible combinations, return
-	if possibleResults.size() == 0: return
-	# Otherwise, if list of possible combinations not narrowed down to one at this point, do random combination
-	do_combination(possibleResults[randi_range(0,possibleResults.size() - 1)])
+		if child.item: ingreds.append(child.item)
+	
+	# If no ingredients placed, return
+	if ingreds.size() < 1: return
+	
+	var combo_and_extra = CombinationDatabase.get_combination(ingreds)
+	if combo_and_extra.has("combo"):
+		do_combination(combo_and_extra["combo"],combo_and_extra["extra"])
 
 func on_dropped_item(item:ItemBase):
 	on_dropped_ingredient.emit(item)
@@ -63,8 +54,8 @@ func _on_recipe_book_button_pressed():
 	recipebook.visible = true
 	animplayer.play("open_recipe_book")
 
-func do_combination(combo):
-	add_to_inventory.emit(combo.result,combo.amount)
+func do_combination(combo, extra = 0):
+	add_to_inventory.emit(combo.result,combo.amount + extra)
 	for child in ingredients.get_children():
 		child.item = null
 		child.ingredient.texture_normal = null

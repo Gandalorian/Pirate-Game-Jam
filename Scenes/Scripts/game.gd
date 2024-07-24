@@ -29,7 +29,7 @@ func _ready():
 	$"Inventory popup/Panel".modulate = Color8(255,255,255,0)
 	
 	# Test inventory
-	inventory.add(ItemDatabase.get_item("test_item"),1)
+	inventory.add(ItemDatabase.get_item("bottle_of_water"),10)
 	inventory.add(ItemDatabase.get_item("herb1"),1)
 	inventory.add(ItemDatabase.get_item("herb2"),1)
 	inventory.add(ItemDatabase.get_item("herb3"),1)
