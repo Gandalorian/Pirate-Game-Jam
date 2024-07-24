@@ -33,7 +33,6 @@ offset_bottom = 40.0
 script = ExtResource("1_q178h")
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
