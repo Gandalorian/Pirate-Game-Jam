@@ -7,7 +7,7 @@ extends Node
 
 @onready var animplayer = $AnimationPlayer
 @onready var inventory = $Inventory
-@onready var inventory_popup = $"Inventory added popup"
+@onready var inventory_popup = $"Inventory popup"
 
 var title: Node
 var shop: Node
@@ -26,7 +26,7 @@ func _ready():
 	garden.set_visible(false)
 	alchemy.set_visible(false)
 	
-	inventory_popup.modulate = Color8(255,255,255,0)
+	$"Inventory popup/Panel".modulate = Color8(255,255,255,0)
 	
 	# Test inventory
 	inventory.add(ItemDatabase.get_item("test_item"),1)
@@ -130,5 +130,8 @@ func update_inventory():
 	alchemy.update_inventory(inventory.container)
 
 func play_inventory_popup(item,count):
-	inventory_popup.setup(item,count)
-	animplayer.play("added_to_inventory_popup")
+	if not inventory_popup.animplayer.is_playing():
+		inventory_popup.setup(item,count)
+		inventory_popup.play_anim("Popup/added_to_inventory_popup")
+	else:
+		inventory_popup.add_to_setup_queue(item,count)

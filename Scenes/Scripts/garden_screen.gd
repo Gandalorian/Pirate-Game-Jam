@@ -16,8 +16,13 @@ func _ready():
 			spawnpoints.append(child)
 
 func spawn_gatherables():
+	# Randomize amount to spawn
 	var amount_to_spawn = randi_range(3,spawnpoints.size())
 	var amount_spawned = 0
+	# Check already spawned
+	for point in spawnpoints:
+		if point.item: amount_spawned += 1
+	# Spawn new
 	while(amount_spawned < amount_to_spawn):
 		var point = spawnpoints[randi_range(0,spawnpoints.size() - 1)]
 		if not point.item:

@@ -12,7 +12,6 @@ func _ready():
 
 func add(item, count = 1):
 	added_to_inventory.emit(item,count)
-	print("added")
 	for slot in container:
 		if item == slot.item:
 			slot.count += count
