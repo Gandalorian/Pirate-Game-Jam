@@ -31,6 +31,6 @@ project/assembly_name="Pirate Game Jam"
 
 [editor]
 
-movie_writer/mjpeg_quality=0.6
+movie_writer/mjpeg_quality=0.4
 movie_writer/movie_file="C:/Users/augha/Godot Projects/Recordings/recording.avi"
-movie_writer/fps=24
+movie_writer/fps=20
