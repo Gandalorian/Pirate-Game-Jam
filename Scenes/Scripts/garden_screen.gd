@@ -34,7 +34,7 @@ func set_visible(visibility):
 	container.visible = visibility
 
 func _on_to_shop_button_pressed():
-	on_shop_button_pressed.emit()
+	on_shop_button_pressed.emit("garden","shop")
 
 func pressed_gatherable(item:ItemBase):
 	on_gatherable_pressed.emit(item)

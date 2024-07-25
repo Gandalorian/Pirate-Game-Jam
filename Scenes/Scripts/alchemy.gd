@@ -23,7 +23,7 @@ func set_visible(visibility):
 		on_update_inventory.emit()
 
 func _on_button_pressed():
-	on_shop_button_pressed.emit()
+	on_shop_button_pressed.emit("alchemy","shop")
 
 func update_inventory(inventory):
 	container.update_inventory(inventory)

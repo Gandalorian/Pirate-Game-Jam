@@ -20,10 +20,10 @@ func get_item(ID):
 func get_combination(ingredients)->Dictionary:
 	var to_return = {}
 	
-	var match_4:Array[Combination]
-	var match_3:Array[Combination]
-	var match_2:Array[Combination]
-	var match_1:Array[Combination]
+	var match_4:Array[Combination] = []
+	var match_3:Array[Combination] = []
+	var match_2:Array[Combination] = []
+	var match_1:Array[Combination] = []
 	
 	for combination in cache:
 		var combo = cache[combination]

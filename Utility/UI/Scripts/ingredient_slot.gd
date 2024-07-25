@@ -7,7 +7,7 @@ var item = null
 signal on_dropped_item(item:ItemBase)
 signal on_undropped_item(item:ItemBase)
 
-func _can_drop_data(at_position, data):
+func _can_drop_data(_at_position, data):
 	if item == null: return true
 	return false
 	

@@ -12,7 +12,7 @@ func set_visible(visibility):
 	container.visible = visibility
 
 func _on_to_garden_button_pressed():
-	on_garden_button_pressed.emit()
+	on_garden_button_pressed.emit("shop","garden")
 
 func _on_to_alch_button_pressed():
-	on_alch_button_pressed.emit()
+	on_alch_button_pressed.emit("shop","alchemy")

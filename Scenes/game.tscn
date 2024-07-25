@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccbqlfv07hsgt"]
+[gd_scene load_steps=8 format=3 uid="uid://ccbqlfv07hsgt"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/game.gd" id="1_c7vsc"]
 [ext_resource type="Texture2D" uid="uid://dlglvcdkth7qe" path="res://Graphics/black.png" id="2_4rbyv"]
 [ext_resource type="Script" path="res://Data/Scripts/Inventory.gd" id="2_ygaor"]
-[ext_resource type="PackedScene" uid="uid://bp2oqptncsyqe" path="res://Utility/UI/Scenes/inventory_popup.tscn" id="4_luvc2"]
 
 [sub_resource type="Animation" id="Animation_rplw2"]
 length = 0.001
@@ -70,12 +69,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_4rbyv")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Scene Transition Animation Player" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Scene Transition")
 libraries = {
 "": SubResource("AnimationLibrary_ps4wu")
 }
 
-[node name="Inventory popup" parent="." instance=ExtResource("4_luvc2")]
-
-[editable path="Inventory popup"]
+[node name="Popup Container" type="VBoxContainer" parent="."]
+z_index = 4000
+offset_top = -496.0
+offset_right = 40.0
+offset_bottom = 46.0
+theme_override_constants/separation = 50
+alignment = 2

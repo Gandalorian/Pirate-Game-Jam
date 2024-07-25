@@ -11,7 +11,7 @@ func has_point(at_position):
 	if at_position.y < global_position.y or at_position.y > global_position.y + size.y: return false
 	return true
 
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	var data = [texture,item,count]
 	var prev = duplicate()
 	var c = Control.new()
