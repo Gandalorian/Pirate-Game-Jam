@@ -34,5 +34,8 @@ func remove(item, count = 1):
 	return false
 
 func get_count(item):
-	pass
+	for slot in container:
+		if slot.item == item:
+			return slot.count
+	return 0
 

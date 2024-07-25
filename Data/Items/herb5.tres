@@ -10,4 +10,4 @@ description = ""
 icon = ExtResource("1_lfsay")
 value = 10
 combo_priority = 0
-type = 1
+type = 0

@@ -14,5 +14,5 @@ func reset():
 	visible = false
 
 func _on_pressed():
-	on_pressed_gatherable.emit(item)
+	on_pressed_gatherable.emit(item.gather_result)
 	reset()

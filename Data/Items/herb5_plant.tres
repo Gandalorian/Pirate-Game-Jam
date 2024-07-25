@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="ItemBase" load_steps=2 format=3 uid="uid://c5eggmx78awud"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c5eggmx78awud"]
 
-[ext_resource type="Script" path="res://Data/Scripts/itembase.gd" id="1_is44x"]
+[ext_resource type="Script" path="res://Data/Scripts/gatherable_item.gd" id="1_f605l"]
+[ext_resource type="Resource" uid="uid://tipjs5gjxjc" path="res://Data/Items/herb5.tres" id="1_obwb1"]
+[ext_resource type="Texture2D" uid="uid://boo5ffn2hxuhg" path="res://Graphics/herb5.png" id="2_ap1vd"]
 
 [resource]
-script = ExtResource("1_is44x")
-name = ""
+script = ExtResource("1_f605l")
+gather_result = ExtResource("1_obwb1")
+name = "Herb 5"
 description = ""
+icon = ExtResource("2_ap1vd")
 value = 0
 combo_priority = 0
-type = 0
+type = 1
